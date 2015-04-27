@@ -25,7 +25,7 @@ public final class JavaWordCount {
 
     SparkConf sparkConf = new SparkConf().setAppName("JavaWordCount");
     JavaSparkContext ctx = new JavaSparkContext(sparkConf);
-    JavaRDD<String> lines = ctx.textFile(args[0], 1);
+    JavaRDD<String> lines = ctx.textFile(args[0]);
 
     JavaRDD<String> words = lines.flatMap(new FlatMapFunction<String, String>() {
       @Override
